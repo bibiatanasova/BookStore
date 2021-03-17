@@ -1,4 +1,4 @@
-﻿using BookStore.Controller;
+using BookStore.Controller;
 using BookStore.Models;
 using System;
 using System.Collections.Generic;
@@ -66,11 +66,17 @@ namespace BookStore.View
             Console.WriteLine("5. Get all books");
             Console.WriteLine("6. LogOut");
             Console.WriteLine("7. Exit and LogOut");
+        }
 
-            int choose = int.Parse(Console.ReadLine());
-
-            switch (choose)
+        public void Run()
+        {
+            while (isRunning)
             {
+                MainMenu();
+                int choose = int.Parse(Console.ReadLine());
+
+                switch (choose)
+                {
                 case 1:
                     this.CreateBook();
                     break;
@@ -93,37 +99,10 @@ namespace BookStore.View
                     break;
                 default:
                     break;
+                }
             }
         }
-        private void CreateBook()
-        {
-            StoreController storeController = new StoreController();
 
-            storeController.CreateBook();
-        }
-        private void GetAll()
-        {
-            StoreController storeController = new StoreController();
-
-            storeController.GetAll();
-        }
-        private void UpdateBook()
-        {
-            StoreController storeController = new StoreController();
-
-            storeController.UpdateBook();
-        }
-        private void GetBook()
-        {
-            StoreController storeController = new StoreController();
-
-            storeController.GetBook();
-        }
-        private void DeleteBook()
-        {
-            StoreController storeController = new StoreController();
-
-            storeController.DeleteBook();
-        }
+            
     }
 }
