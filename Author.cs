@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,10 @@ namespace BookStore.Models
 {
     public class Author
     {
+        public Author()
+        {
+
+        }     
         public Author(int idAuthor, string firstName, string lastName)
         {
             this.IdAuthor = idAuthor;
@@ -14,7 +19,7 @@ namespace BookStore.Models
         }
 
         public int IdAuthor { get; private set; }
-        public string  FirstName { get; private set; }
+        public string FirstName { get; private set; }
         public string LastName { get; private set; }
     }
 }
