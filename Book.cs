@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +6,10 @@ namespace BookStore.Models
 {
    public class Book:Author
     {
+        public Book()
+        {
+
+        }
         public Book(int idBook, string title, string genre, int year, decimal price, int idAuthor, string firstName, string lastName)
             :base ( idAuthor, firstName,  lastName)
         {
@@ -28,3 +32,4 @@ namespace BookStore.Models
         }
     }
 }
+
