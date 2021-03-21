@@ -1,35 +1,41 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace BookStore.Models
 {
-   public class Book:Author
+   public class Book
     {
-        public Book()
-        {
 
-        }
-        public Book(int idBook, string title, string genre, int year, decimal price, int idAuthor, string firstName, string lastName)
-            :base ( idAuthor, firstName,  lastName)
+        public Book(int id, string title, string genre, int year, decimal price, int idAuthor, int stock)        
         {
-            this.IdBook = idBook;
+            this.Id = id;
             this.Title = title;
             this.Genre = genre;
             this.Year = year;
             this.Price = price;
+            this.AuthorId = idAuthor;
+           this.Stock = stock;
+        }
+        public Book()
+        {
+
         }
 
-        public int IdBook { get; private set; }
-        public string Title { get; private set; }
-        public string Genre { get; private set; }
-        public int Year { get; private set; }
+        public Author  Author { get;  set; }
+        [ForeignKey("Author")]
+        public int AuthorId { get;  set; }
+        public int Id { get;  set; }
+        public string Title { get;  set; }
+        public string Genre { get;  set; }
+        public int Year { get;  set; }
         public decimal Price { get;  set; }
+        public int Stock { get; set; }
 
         public override string ToString()
         {
-            return $"{Title} - {FirstName} {LastName} - {Genre} - {Year} - {Price}";
+            return $"Id: {Id} Title: {Title}  Genre: {Genre} Year: {Year}  Price: {Price}  Stock: {Stock}  AuthorId: {AuthorId}";
         }
     }
 }
-
