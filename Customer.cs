@@ -1,9 +1,11 @@
-﻿using System;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BookStore.Models
 {
+
     public class Customer
     {
         public Customer()
@@ -11,11 +13,24 @@ namespace BookStore.Models
 
         }
 
-        public Customer(int idCustomer)
+        public Customer(int id, string password,string firstName, string lastName, int age)
         {
-            this.IdCustomer = idCustomer;
+            this.Id = id;
+            this.Password = password;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Age = age;
         }
 
-        public int IdCustomer { get; private set; }
+        public int Id { get;  set; }
+        public string Password { get;  set; }
+        public string FirstName { get;  set; }
+        public string LastName { get;  set; }
+        public int Age { get;  set; }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName} ";
+        }
     }
 }
